@@ -1,0 +1,31 @@
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    
+    margin-top: 8px;
+    padding: 6px 0;
+    list-style: none;
+}
+
+.suggestion-item {
+    cursor: pointer;
+    font-size: 14px;
+
+    padding: 10px 16px;
+}
+
+.suggestion-item:hover,
+.suggestion-item.highlight {
+    background: #f2f4f8;
+}
+
+.suggestion-item strong {
+    color: #2d6cdf;
+}

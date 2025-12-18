@@ -1,0 +1,35 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--white);
+}
+
+.logo img {
+    display: block;
+    height: 36px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links a {
+    background: #f7f7f8;
+    border-radius: 8px;
+
+    color: #444;
+    font-size: 13px;
+    
+    padding: 6px 12px;
+    text-decoration: none;
+}

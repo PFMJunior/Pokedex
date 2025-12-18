@@ -1,0 +1,78 @@
+/* Responsividade */
+@media (min-width: 1500px) {
+    .pokemon-grid .pokemon-card {
+        width: 100%;
+        min-height: 340px;
+    }
+
+    .pokemon-grid .card-image img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 760px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .navbar {
+        padding: 12px 16px;
+    }
+}
+
+@media (max-width: 520px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .pokemon-card {
+        width: 100%;
+    }
+
+    .search-bar {
+        padding: 10px 14px;
+    }
+
+    .pagination {
+        gap: 6px;
+        margin: 25px 0;
+    }
+
+    .pagination button {
+        font-size: 13px;
+    }
+
+    .pagination-nav {
+        padding: 0 10px;
+        font-size: 13px;
+    }
+
+    .loading-overlay {
+        font-size: 16px;
+        padding: 12px 16px;
+        min-width: 160px;
+    }
+}
