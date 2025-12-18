@@ -1,16 +1,12 @@
 import { API, DOM } from './config.js';
 import { loadPokemonPage } from './main.js';
 
-/* ===================== */
 /* Configurações         */
-/* ===================== */
 
 const DESKTOP_WINDOW = 7;
 const MOBILE_WINDOW = 3;
 
-/* ===================== */
 /* Funções auxiliares    */
-/* ===================== */
 
 function isMobile() {
     return window.innerWidth <= 520;
@@ -53,9 +49,7 @@ function dots() {
     return span;
 }
 
-/* ===================== */
 /* Renderização principal */
-/* ===================== */
 
 export function renderPagination(currentPage, totalPages, limit) {
     if (!DOM.pagination) return;
