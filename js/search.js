@@ -7,9 +7,7 @@ import { state } from './state.js';
 let debounceTimer;
 const SUGGEST_LIMIT = 8;
 
-/* ===================== */
-/* Input com debounce     */
-/* ===================== */
+/* Input com debounce */
 
 export function handleInputDebounced() {
     clearTimeout(debounceTimer);
@@ -24,15 +22,23 @@ export function handleInputDebounced() {
             return loadInitialPage();
         }
 
-        // 🔍 Filtragem local
-        const matches = state.allPokemons.filter(p =>
-            p.name.includes(query)
-        );
+        // Filtragem local
+        const matches = state.allPokemons.filter(pokemon => {
+            const q = query.toLowerCase();
 
-        // 👉 Sugestões
+            const matchName = pokemon.name.includes(q);
+            const matchType = pokemon.types.some(type => type.includes(q));
+            const matchGen =
+                q === `gen${pokemon.generation}` ||
+                q === `generation ${pokemon.generation}`;
+
+            return matchName || matchType || matchGen;
+        });
+
+        // Sugestões
         showSuggestions(matches.slice(0, SUGGEST_LIMIT), query);
 
-        // 👉 Atualiza grid em tempo real
+        // Atualiza grid em tempo real
         showLoading('Buscando Pokémon...');
         DOM.pagination.innerHTML = '';
 
@@ -49,9 +55,7 @@ export function handleInputDebounced() {
     }, 200);
 }
 
-/* ===================== */
 /* Busca direta (Enter)   */
-/* ===================== */
 
 export async function searchByName(name) {
     const query = name.trim().toLowerCase();
@@ -74,9 +78,7 @@ export async function searchByName(name) {
     }
 }
 
-/* ===================== */
 /* Suggestions helpers    */
-/* ===================== */
 
 function showSuggestions(items, query) {
     DOM.suggestions.innerHTML = '';
